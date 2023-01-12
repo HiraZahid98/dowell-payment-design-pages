@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Payment Settings</title>
+
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+
+    <link href="./css/style.css" rel="stylesheet" />
+
+    <script src="./js/script.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-light fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">DoWell</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#scan-settings">Scan Qr Code</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#cash-settings">Cash Counter</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#bank-settings">Bank Transfer</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#payment-settings">Payment App</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#membership-settings">Membership</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+    <!-- scan qr settings  -->
+    <div class="row" id="scan-settings">
+      <div class="col-0 col-lg-3 col-sm-0"></div>
+      <div class="col-12 col-lg-6 col-sm-12">
+        <div class="container">
+          <h5 class="text-center f-bold cash-header">Scan QR Code - Setting</h5>
+          <p class="text-center cash-description">
+            Customers will scan QR code to pay
+          </p>
+          <!-- form  -->
+          <form>
+            <div class="container-fluid">
+              <!-- radiobutton  -->
+              <p>
+                Select enable to use this option
+                <span class="required"><sup>*</sup></span>
+              </p>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  required
+                  type="radio"
+                  name="Qrcode"
+                  id="enable"
+                  value="option1"
+                  onclick="enableinput()"
+                />
+                <label class="form-check-label" for="enable">Enable</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="Qrcode"
+                  id="disable"
+                  value="option2"
+                  onclick="disableinput()"
+                />
+                <label class="form-check-label" for="disable">Disable</label>
+              </div>
+              <!-- order number  -->
+              <div class="mt-3">
+                <label for="ordernumber" class="form-label"
+                  >Upload QR code recieved from your bank/App<span class="required"><sup>*</sup></span>
+                  </label
+                >
+                <input
+                  type="file"
+                  class="form-control"
+                  id="ordernumber"
+                  placeholder="Enter order number"
+                />
+              </div>
+
+              <!-- currency  -->
+              <div class="mb-3 mt-4">
+                <label for="ordernumber" class="form-label"
+                  >Select Currency
+                  <span class="required"><sup>*</sup></span></label
+                >
+                <select class="form-select" id="currency" aria-label="Default select example">
+                  <option value="usd">USD</option>
+                  <option value="aud">AUD</option>
+                  <option value="euro">Euro</option>
+                </select>
+              </div>
+
+              <!-- button  -->
+              <div class="d-grid gap-2 mb-5">
+                <button class="btn save-button" type="button" id="qr-code">
+                  Save new QR code
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <!-- image  -->
+          <div class="text-center">
+            <img src="./images/DoWell_Wifi_QR_Code-300x300.png" class="rounded" alt="Qr Code">
+          </div>
+          <hr/>
+        </div>
+      </div>
+
+      <div class="col-0 col-lg-3 col-sm-0"></div>
+    </div>
+
+
+
+    <!-- cash counter settings  -->
+    <div class="row mt-5" id="cash-settings">
+        <div class="col-0 col-lg-3 col-sm-0"></div>
+        <div class="col-12 col-lg-6 col-sm-12">
+          <div class="container">
+            <h5 class="text-center f-bold cash-header">Cash Counter - Setting</h5>
+            <p class="text-center cash-description">Customers will pay at cash counter by cash/card</p>
+            <!-- form  -->
+            <form>
+              <div class="container-fluid">
+                <!-- radiobutton  -->
+                <p>
+                  Select enable to use this option
+                  <span class="required"><sup>*</sup></span>
+                </p>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input" 
+                    id="cashradio1"
+                    type="radio"
+                    name="cashcounter"
+                    value="cash1"
+                    onclick="enablecashinput()"
+                  />
+                  <label class="form-check-label" for="cashradio1">Enable</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    id="cashradio2"
+                    type="radio"
+                    name="cashcounter"
+                    value="cash2"
+                    onclick="disablecashinput()"
+                  />
+                  <label class="form-check-label" for="cashradio2">Disable</label>
+                </div>
+               
+  
+                <!-- currency  -->
+                <p>
+                  Select currency
+                  <span class="required"><sup>*</sup></span>
+                </p>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="usd" id="usd">
+                  <label class="form-check-label" for="defaultCheck1">
+                    USD
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="aud" id="aud">
+                  <label class="form-check-label" for="defaultCheck2">
+                    AUD
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="euro" id="euro">
+                  <label class="form-check-label" for="defaultCheck2">
+                    Euro
+                  </label>
+                </div>
+  
+                <!-- button  -->
+                <div class="d-grid gap-2 mb-5">
+                  <button class="btn save-button" type="button" id="cash-button">
+                    Save
+                  </button>
+                </div>
+              </div>
+            </form>
+  
+            
+            <hr/>
+          </div>
+        </div>
+  
+        <div class="col-0 col-lg-3 col-sm-0"></div>
+      </div>
+
+
+
+          <!--  bank transfer settings -->
+          <div class="row mt-5" id="bank-settings">
+            <div class="col-0 col-lg-3 col-sm-0"></div>
+            <div class="col-12 col-lg-6 col-sm-12">
+              <div class="container">
+                <h5 class="text-center f-bold cash-header">Bank transfer - Setting</h5>
+                <p class="text-center cash-description">Customers will pay by bank transfer</p>
+                <!-- form  -->
+                <form>
+                  <div class="container-fluid">
+                    <!-- radiobutton  -->
+                    <p> Select enable to use this option<span class="required"><sup>*</sup></span></p>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" id="bankradio1" type="radio" name="bankcounter" value="" onclick="enablebankinput()"/>
+                      <label class="form-check-label" for="bankradio1">Enable</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input" id="bankradio2" type="radio" name="bankcounter" value="" onclick="disablebankinput()"/>
+                      <label class="form-check-label" for="bankradio2">Disable</label>
+                    </div>
+                   
+      
+                    <!-- currency  -->
+                    <div class="mb-3 mt-4">
+                      <label for="bank-currency" class="form-label"
+                        >Select Currency
+                        <span class="required"><sup>*</sup></span></label
+                      >
+                      <select class="form-select" id="bank-currency" aria-label="Default select example">
+                        <option value="usd">USD</option>
+                        <option value="aud">AUD</option>
+                        <option value="euro">Euro</option>
+                      </select>
+                    </div>
+      
+
+                    <!-- bank account name  -->
+                <div class="mb-3">
+                  <label for="accountname" class="form-label">Bank Account Name <span class="required"><sup>*</sup></span></label>
+                  <input type="text" class="form-control" id="accountname" placeholder="Enter bank account name">
+              </div>
+
+               <!-- bank account number  -->
+               <div class="mb-3">
+                <label for="accountnumber" class="form-label">Your Bank Account Number <span class="required"><sup>*</sup></span></label>
+                <input type="text" class="form-control" id="accountnumber" placeholder="Enter bank account number">
+            </div>
+
+             <!--re-enter bank account number  -->
+             <div class="mb-3">
+              <label for="confirmaccountnumber" class="form-label">Re Your Bank Account Number <span class="required"><sup>*</sup></span></label>
+              <input type="text" class="form-control" id="confirmaccountnumber" placeholder="Enter bank account number again">
+          </div>
+
+           <!-- bank routing code  -->
+           <div class="mb-3">
+            <label for="routingcode" class="form-label">Banking Routing code (IFSC/IBAN/SWIFT) <span class="required"><sup>*</sup></span></label>
+            <input type="text" class="form-control" id="routingcode" placeholder="Enter routing code">
+        </div>
+
+         <!-- trade tax number  -->
+         <div class="mb-3">
+          <label for="tradenumber" class="form-label">Trade tax number (GST/CST) <span class="required"><sup>*</sup></span></label>
+          <input type="text" class="form-control" id="tradenumber" placeholder="Enter tax number">
+      </div>
+
+                    <!-- button  -->
+                    <div class="d-grid gap-2 mb-5">
+                      <button class="btn save-button" type="button" id="bank-transfer-button">
+                        Save
+                      </button>
+                    </div>
+                  </div>
+                </form>
+      
+                
+                <hr/>
+              </div>
+            </div>
+      
+            <div class="col-0 col-lg-3 col-sm-0"></div>
+          </div>
+
+
+
+          <!--  Payment App settings -->
+          <div class="row mt-5" id="payment-settings">
+            <div class="col-0 col-lg-3 col-sm-0"></div>
+            <div class="col-12 col-lg-6 col-sm-12">
+              <div class="container">
+                <h5 class="text-center f-bold cash-header">Payment App - Setting</h5>
+                <p class="text-center cash-description">Customers will pay by payment app</p>
+                <!-- form  -->
+                <form>
+                  <div class="container-fluid">
+                    <!-- radiobutton  -->
+                    <p> Select enable to use this option<span class="required"><sup>*</sup></span></p>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" id="paymentappradio1" type="radio" name="paymentapp" value="" onclick="enablepaymentappinput()"/>
+                      <label class="form-check-label" for="paymentappradio1">Enable</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" id="paymentappradio2" type="radio" name="paymentapp" value="" onclick="disablepaymentappinput()"/>
+                      <label class="form-check-label" for="paymentappradio2">Disable</label>
+                    </div>
+                   
+      
+                    <!-- currency  -->
+                    
+                    <div class="mb-3 mt-4">
+                      <label for="stripe-currency" class="form-label">Select Currency<span class="required"><sup>*</sup></span></label>
+                      <select class="form-select" id="stripe-currency" aria-label="Default select example">
+                        <option value="usd">USD</option>
+                        <option value="aud">AUD</option>
+                        <option value="euro">Euro</option>
+                      </select>
+                    </div>
+
+                    <!-- stripe pay link  -->
+                    <div class="mb-3">
+                      <label for="stripepaylink" class="form-label">Stripe Pay Link <span class="required"><sup>*</sup></span></label>
+                      <input type="text" class="form-control" id="stripepaylink" placeholder="Enter stripe pay link">
+                    </div>
+
+                    <!--stripe button  -->
+                    <div class="d-grid gap-2 mb-5">
+                      <button class="btn save-button" id="stripebutton" type="button">
+                        Save Stripe Link
+                      </button>
+                    </div>
+                  </div>  
+                </form>
+                <hr/>
+              </div>
+            </div>      
+            <div class="col-0 col-lg-3 col-sm-0"></div>
+          </div>
+        
+
+          <!-- G-pay Payment App settings -->
+          <div class="row mt-5">
+            <div class="col-0 col-lg-3 col-sm-0"></div>
+            <div class="col-12 col-lg-6 col-sm-12">
+              <div class="container">
+                <!-- form  -->
+                <form>
+                  <div class="container-fluid">
+                    <!-- radiobutton  -->
+                    <p> Select enable to use this option<span class="required"><sup>*</sup></span></p>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" id="gpayenable" type="radio" name="paymentapp" value="" onclick="enablegpayinput()"/>
+                      <label class="form-check-label" for="gpayenable">Enable</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input" id="gpaydisable" type="radio" name="paymentapp" value="" onclick="disablegpayinput()"/>
+                      <label class="form-check-label" for="gpaydisable">Disable</label>
+                    </div>
+                   
+      
+                    <!-- currency  -->
+                    
+                    <div class="mb-3 mt-4">
+                      <label for="gpay-currency" class="form-label"
+                        >Select Currency
+                        <span class="required"><sup>*</sup></span></label
+                      >
+                      <select class="form-select" id="gpay-currency" aria-label="Default select example">
+                        <option value="usd">USD</option>
+                        <option value="aud">AUD</option>
+                        <option value="euro">Euro</option>
+                      </select>
+                    </div>
+
+                    <!-- stripe pay link  -->
+                <div class="mb-3">
+                  <label for="gpaylink" class="form-label">GPay Link<span class="required"><sup>*</sup></span></label>
+                  <input type="text" class="form-control" id="gpaylink" placeholder="Enter GPay link">
+              </div>
+
+              <!--stripe button  -->
+              <div class="d-grid gap-2 mb-5">
+                <button class="btn save-button" type="button" id="gpay-button">
+                  Save G Pay Link
+                </button>
+              </div>
+</div>
+                </form>
+      
+                
+                <hr/>
+              </div>
+            </div>
+      
+            <div class="col-0 col-lg-3 col-sm-0"></div>
+          </div>
+
+
+
+           <!-- Amazon Pay link -->
+           <div class="row mt-5">
+            <div class="col-0 col-lg-3 col-sm-0"></div>
+            <div class="col-12 col-lg-6 col-sm-12">
+              <div class="container">
+                <!-- form  -->
+                <form>
+                  <div class="container-fluid">
+                    <!-- radiobutton  -->
+                    <p> Select enable to use this option<span class="required"><sup>*</sup></span></p>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" id="amazonenable" type="radio" name="amazonapp" value="" onclick="enableamazoninput()"/>
+                      <label class="form-check-label" for="amazonenable">Enable</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input" id="amazondisable" type="radio" name="amazonapp" value="" onclick="disableamazoninput()"/>
+                      <label class="form-check-label" for="amazondisable">Disable</label>
+                    </div>
+                   
+      
+                    <!-- currency  -->
+                    
+                    <div class="mb-3 mt-4">
+                      <label for="amazon-currency" class="form-label"
+                        >Select Currency
+                        <span class="required"><sup>*</sup></span></label
+                      >
+                      <select class="form-select" id="amazon-currency" aria-label="Default select example">
+                        <option value="usd">USD</option>
+                        <option value="aud">AUD</option>
+                        <option value="euro">Euro</option>
+                      </select>
+                    </div>
+
+                    <!-- stripe pay link  -->
+                <div class="mb-3">
+                  <label for="amazonpaylink" class="form-label">Amazon Pay Link<span class="required"><sup>*</sup></span></label>
+                  <input type="text" class="form-control" id="amazonpaylink" placeholder="Enter Amazon link">
+              </div>
+
+              <!--stripe button  -->
+              <div class="d-grid gap-2 mb-5">
+                <button class="btn save-button" type="button" id="amazon-button">
+                  Save Amazon Pay Link
+                </button>
+              </div>
+</div>
+                </form>
+      
+                
+                <hr/>
+              </div>
+            </div>
+      
+            <div class="col-0 col-lg-3 col-sm-0"></div>
+          </div>
+
+
+          <!-- PayPal link -->
+          <div class="row mt-5">
+            <div class="col-0 col-lg-3 col-sm-0"></div>
+            <div class="col-12 col-lg-6 col-sm-12">
+              <div class="container">
+                <!-- form  -->
+                <form>
+                  <div class="container-fluid">
+                    <!-- radiobutton  -->
+                    <p> Select enable to use this option<span class="required"><sup>*</sup></span></p>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" id="paypalenable1" type="radio" name="paypal" value="" onclick="enablepaypalinput()"/>
+                      <label class="form-check-label" for="paypalenable1">Enable</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input" id="paypalenable2" type="radio" name="paypal" value="" onclick="disablepaypalinput()"/>
+                      <label class="form-check-label" for="paypalenable2">Disable</label>
+                    </div>
+                   
+      
+                    <!-- currency  -->
+                    
+                    <div class="mb-3 mt-4">
+                      <label for="paypal-currency" class="form-label"
+                        >Select Currency
+                        <span class="required"><sup>*</sup></span></label
+                      >
+                      <select class="form-select" id="paypal-currency" aria-label="Default select example">
+                        <option value="usd">USD</option>
+                        <option value="aud">AUD</option>
+                        <option value="euro">Euro</option>
+                      </select>
+                    </div>
+
+                    <!-- stripe pay link  -->
+                <div class="mb-3">
+                  <label for="paypallink" class="form-label">Paypal Link<span class="required"><sup>*</sup></span></label>
+                  <input type="text" class="form-control" id="paypallink" placeholder="Enter Paypal link">
+              </div>
+
+              <!--stripe button  -->
+              <div class="d-grid gap-2 mb-5">
+                <button class="btn save-button" type="button" id="paypal-button">
+                  Save Paypal Link
+                </button>
+              </div>
+</div>
+                </form>
+                <hr/>
+              </div>
+            </div>
+      
+            <div class="col-0 col-lg-3 col-sm-0"></div>
+          </div>
+
+
+          
+          <!-- Facebook link -->
+          <div class="row mt-5">
+            <div class="col-0 col-lg-3 col-sm-0"></div>
+            <div class="col-12 col-lg-6 col-sm-12">
+              <div class="container">
+                <!-- form  -->
+                <form>
+                  <div class="container-fluid">
+                    <!-- radiobutton  -->
+                    <p> Select enable to use this option<span class="required"><sup>*</sup></span></p>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" id="facebookenable1" type="radio" name="facebook" value="" onclick="enablefacebookinput()"/>
+                      <label class="form-check-label" for="facebookenable1">Enable</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input" id="facebookenable2" type="radio" name="facebook" value="" onclick="disablefacebookinput()"/>
+                      <label class="form-check-label" for="facebookenable2">Disable</label>
+                    </div>
+                   
+      
+                    <!-- currency  -->
+                    
+                    <div class="mb-3 mt-4">
+                      <label for="facebook-currency" class="form-label">Select Currency
+                        <span class="required"><sup>*</sup></span></label
+                      >
+                      <select class="form-select" id="facebook-currency" aria-label="Default select example">
+                        <option value="usd">USD</option>
+                        <option value="aud">AUD</option>
+                        <option value="euro">Euro</option>
+                      </select>
+                    </div>
+
+                    <!-- stripe pay link  -->
+                <div class="mb-3">
+                  <label for="facebooklink" class="form-label">Facebook Pay Link<span class="required"><sup>*</sup></span></label>
+                  <input type="text" class="form-control" id="facebooklink" placeholder="Enter Facebook Pay link"/>
+              </div>
+
+              <!--stripe button  -->
+              <div class="d-grid gap-2 mb-5">
+                <button class="btn save-button" type="button" id="facebook-button">
+                  Save Facebook Pay Link
+                </button>
+              </div>
+</div>
+                </form>
+      
+                
+                <hr/>
+              </div>
+            </div>
+      
+            <div class="col-0 col-lg-3 col-sm-0"></div>
+          </div>
+
+
+
+           <!-- Payment link -->
+           <div class="row mt-5">
+            <div class="col-0 col-lg-3 col-sm-0"></div>
+            <div class="col-12 col-lg-6 col-sm-12">
+              <div class="container">
+                <!-- form  -->
+                <form>
+                  <div class="container-fluid">
+                    <!-- radiobutton  -->
+                    <p> Select enable to use this option<span class="required"><sup>*</sup></span></p>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" id="paymentenable1" type="radio" name="payment" value="" onclick="enablepaymentinput()"/>
+                      <label class="form-check-label" for="paymentenable1">Enable</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input" id="paymentenable2" type="radio" name="payment" value="" onclick="disablepaymentinput()"/>
+                      <label class="form-check-label" for="paymentenable2">Disable</label>
+                    </div>
+                   
+      
+                    <!-- currency  -->
+                    
+                    <div class="mb-3 mt-4">
+                      <label for="payment-currency" class="form-label">Select Currency
+                        <span class="required"><sup>*</sup></span></label
+                      >
+                      <select class="form-select" id="payment-currency" aria-label="Default select example">
+                        <option value="usd">USD</option>
+                        <option value="aud">AUD</option>
+                        <option value="euro">Euro</option>
+                      </select>
+                    </div>
+
+                    <!-- stripe pay link  -->
+                <div class="mb-3">
+                  <label for="paymentlink" class="form-label">Other Pay Link<span class="required"><sup>*</sup></span></label>
+                  <input type="text" class="form-control" id="paymentlink" placeholder="Enter Paypal link"/>
+              </div>
+
+              <!--stripe button  -->
+              <div class="d-grid gap-2 mb-5">
+                <button class="btn save-button" type="button" id="paymentlink-button">
+                  Save Payment Link
+                </button>
+              </div>
+</div>
+                </form>
+      
+                
+                <hr/>
+              </div>
+            </div>
+      
+            <div class="col-0 col-lg-3 col-sm-0"></div>
+          </div>
+
+
+
+           <!-- membership settings  -->
+    <div class="row mt-5" id="membership-settings">
+      <div class="col-0 col-lg-3 col-sm-0"></div>
+      <div class="col-12 col-lg-6 col-sm-12">
+        <div class="container">
+          <h5 class="text-center f-bold cash-header">Membership - Setting</h5>
+          <p class="text-center cash-description">Customers will pay by membership credits</p>
+          <!-- form  -->
+          <form>
+            <div class="container-fluid">
+              <!-- radiobutton  -->
+              <p> Select enable to use this option<span class="required"><sup>*</sup></span></p>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" required type="radio" name="membership" id="membership-enable" value="" onclick="enablemembershipinput()"/>
+                <label class="form-check-label" for="membership-enable">Enable</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="membership" id="membership-disable" value="" onclick="disablemembershipinput()"/>
+                <label class="form-check-label" for="membership-disable">Disable</label>
+              </div>
+
+              <!-- currency  -->
+              <div class="mb-3 mt-4">
+                <label for="membership-currency" class="form-label">Select Currency<span class="required"><sup>*</sup></span></label>
+                <select class="form-select" id="membership-currency" aria-label="Default select example">
+                  <option value="usd">USD</option>
+                  <option value="aud">AUD</option>
+                  <option value="euro">Euro</option>
+                </select>
+              </div>
+
+              <!-- membership provide link  -->
+              <div class="mb-3">
+                <label for="membershipprovider" class="form-label">Membership Provider<span class="required"><sup>*</sup></span></label>
+                <input type="text" class="form-control" id="membershipprovider" placeholder="Enter Membership provider"/>
+            </div>
+
+              <!-- reference number / name -->
+              <div class="mb-3">
+                <label for="reference-number" class="form-label">Reference Number/Name<span class="required"><sup>*</sup></span></label>
+                <input type="text" class="form-control" id="reference-number" placeholder="Enter reference number"/>
+            </div>
+              <!-- file upload  -->
+              <div class="mb-3">
+                <label for="fileupload" class="form-label">Upload member details as CSV/Spreadsheet<span class="required"><sup>*</sup></span></label>
+                <input type="file" class="form-control" id="fileupload" placeholder="Enter order number"/>
+              </div>
+
+              <!-- button  -->
+              <div class="d-grid gap-2 mb-5">
+                <button class="btn save-button" type="button" id="member-detials-button">
+                  See Member Details
+                </button>
+              </div>
+            </div>
+          </form>
+
+          
+          <hr/>
+        </div>
+      </div>
+
+      <div class="col-0 col-lg-3 col-sm-0"></div>
+    </div>
+  </body>
+</html>

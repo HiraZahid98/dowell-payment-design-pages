@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Options</title>
+        <!-- CSS only -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous"><link href="./css/tab.css" rel="stylesheet"/>
+
+</head>
+<style>
+</style>
+<body>
+
+  <!-- Demo header-->
+<section class="py-5 header">
+  <div class="container py-4">
+      <header class="text-center mb-5 pb-5 text-white">
+          <h4 class="display-4">Payment Options</h4>
+      </header>
+
+
+      <div class="row">
+          <div class="col-md-3">
+              <!-- Tabs nav -->
+              <div class="nav flex-column nav-pills nav-pills-custom" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                  <a class="nav-link mb-3 p-3 shadow active" id="v-pills-scanqrcode-tab" data-toggle="pill" href="#v-pills-scanqrcode" role="tab" aria-controls="v-pills-scanqrcode" aria-selected="true">
+                      <i class="fa fa-user-circle-o mr-2"></i>
+                      <span class="font-weight-bold small text-uppercase">Scan QR code</span></a>
+
+                  <a class="nav-link mb-3 p-3 shadow" id="v-pills-cashCounter-tab" data-toggle="pill" href="#v-pills-cashCounter" role="tab" aria-controls="v-pills-cashCounter" aria-selected="false">
+                      <i class="fa fa-calendar-minus-o mr-2"></i>
+                      <span class="font-weight-bold small text-uppercase">Cash Counter</span></a>
+
+                  <a class="nav-link mb-3 p-3 shadow" id="v-pills-banktrabsfer-tab" data-toggle="pill" href="#v-pills-banktrabsfer" role="tab" aria-controls="v-pills-banktrabsfer" aria-selected="false">
+                      <i class="fa fa-star mr-2"></i>
+                      <span class="font-weight-bold small text-uppercase">Bank Transfer</span></a>
+
+                  <a class="nav-link mb-3 p-3 shadow" id="v-pills-payment-tab" data-toggle="pill" href="#v-pills-payment" role="tab" aria-controls="v-pills-payment" aria-selected="false">
+                      <i class="fa fa-check mr-2"></i>
+                      <span class="font-weight-bold small text-uppercase">Payment App</span></a>
+
+                      <a class="nav-link mb-3 p-3 shadow" id="v-pills-membership-tab" data-toggle="pill" href="#v-pills-membership" role="tab" aria-controls="v-pills-membership" aria-selected="false">
+                        <i class="fa fa-star mr-2"></i>
+                        <span class="font-weight-bold small text-uppercase">Membership</span></a>
+  
+                    <a class="nav-link mb-3 p-3 shadow" id="v-pills-options-tab" data-toggle="pill" href="#v-pills-options" role="tab" aria-controls="v-pills-options" aria-selected="false">
+                        <i class="fa fa-check mr-2"></i>
+                        <span class="font-weight-bold small text-uppercase">Reset Options</span></a>
+
+                  </div>
+
+
+          </div>
+
+
+          <div class="col-md-9">
+              <!-- Tabs content -->
+              <div class="tab-content" id="v-pills-tabContent">
+                  <div class="tab-pane fade shadow rounded bg-white show active p-5" id="v-pills-scanqrcode" role="tabpanel" aria-labelledby="v-pills-scanqrcode-tab">
+                    <img src="./images/scanqr.jpg" style="height: 235px;" class=" img-fluid rounded mx-auto d-block" alt="Qr image">
+                    <h4 class="font-italic mb-4">Scan Qr Code</h4>
+                      <p class="font-italic text-muted mb-2">Customers will scan QR code to pay</p>
+                  </div>
+                  
+                  <div class="tab-pane fade shadow rounded bg-white p-5" id="v-pills-cashCounter" role="tabpanel" aria-labelledby="v-pills-cashCounter-tab">
+                    <img src="./images/cashcounter.jpg" style="height: 235px;" class=" img-fluid rounded mx-auto d-block" alt="Qr image">  
+                    <h4 class="font-italic mb-4">Cash Counter</h4>
+                      <p class="font-italic text-muted mb-2">Customers will pay at cash counter​</p>
+                  </div>
+                  
+                  <div class="tab-pane fade shadow rounded bg-white p-5" id="v-pills-banktrabsfer" role="tabpanel" aria-labelledby="v-pills-banktrabsfer-tab">
+                    <img src="./images/payonline.jpg" style="height: 235px;" class=" img-fluid rounded mx-auto d-block" alt="Qr image">  
+                    <h4 class="font-italic mb-4">Bank Transfer</h4>
+                      <p class="font-italic text-muted mb-2">Customers will pay by bank transfer​</p>
+                  </div>
+                  
+                  <div class="tab-pane fade shadow rounded bg-white p-5" id="v-pills-payment" role="tabpanel" aria-labelledby="v-pills-payment-tab">
+                    <img src="./images/paymentapp.jpg" style="height: 235px;" class=" img-fluid rounded mx-auto d-block" alt="Qr image">  
+                    <h4 class="font-italic mb-4">Payment App</h4>
+                      <p class="font-italic text-muted mb-2">Customers will pay by payment app​</p>
+                  </div>
+
+                   
+                  <div class="tab-pane fade shadow rounded bg-white p-5" id="v-pills-membership" role="tabpanel" aria-labelledby="v-pills-membership-tab">
+                    <img src="./images/payByMembership.jpg" style="height: 235px;" class=" img-fluid rounded mx-auto d-block" alt="Qr image">
+                    <h4 class="font-italic mb-4">Membership</h4>
+                    <p class="font-italic text-muted mb-2">Customers will pay by credits</p>
+                </div>
+             
+                 <div class="tab-pane fade shadow rounded bg-white p-5" id="v-pills-options" role="tabpanel" aria-labelledby="v-pills-options-tab">
+                    <h4 class="font-italic mb-4">Reset Options</h4>
+                    <p class="font-italic text-muted mb-2">To Enable, Disable, reset all payment options</p>
+                    <button type="button" onclick="location.href='./admin_payment_settings.html'" class="btn btn-dark">Click here</button>
+                  </div>
+
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+</body>
+</html>
